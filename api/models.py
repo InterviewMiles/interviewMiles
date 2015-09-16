@@ -17,7 +17,7 @@ class Answers(models.Model):
     owner=models.ForeignKey(User)
     added=models.DateTimeField(auto_now=True)
 
-class McqChioces(models.Model):
+class McqChoices(models.Model):
     questionId=models.ForeignKey(Question)
     choice=models.CharField(max_length=500)
     isCorrect=models.BooleanField(daflult=False)
