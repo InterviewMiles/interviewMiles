@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 
 class Question(models.Model):
     title=models.CharField(max_length=500)
-    description=modes.CharFeild(max_length=5000)
-    isMCQ=models.BooleanField(deafult=False)
+    description=models.CharField(max_length=5000)
+    isMCQ=models.BooleanField(default=False)
     difficulty=models.FloatField()
     owner=models.ForeignKey(User)
     added=models.DateTimeField(auto_now=True)
@@ -17,15 +17,15 @@ class Answers(models.Model):
     owner=models.ForeignKey(User)
     added=models.DateTimeField(auto_now=True)
 
-class McqChioces(models.Model):
+class McqChoices(models.Model):
     questionId=models.ForeignKey(Question)
     choice=models.CharField(max_length=500)
-    isCorrect=models.BooleanField(daflult=False)
+    isCorrect=models.BooleanField(default=False)
     owner=models.ForeignKey(User)
     added=models.DateTimeField(auto_now=True)
 
 class Categories(models.Model):
-    parentCategoryId=models.ForeignKey(Categories)
+    parentCategoryId=models.ForeignKey("Categories")
     category=models.CharField(max_length=100)
     owner=models.ForeignKey(User)
     added=models.DateTimeField(auto_now=True)
