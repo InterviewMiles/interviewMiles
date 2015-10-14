@@ -7,6 +7,23 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.renderers import JSONRenderer
+from rest_framework.parsers import JSONParser
+from users.models import CheckUser
+from users.serializers import CheckUserSerializer
+from django.contrib.auth.models import User
+
+
+class JSONResponse(HttpResponse):
+	"""
+	An HttpResponse that renders its content into JSON.
+	"""
+	def __init__(self, data, **kwargs):
+		content = JSONRenderer().render(data)
+		kwargs['content_type'] = 'application/json'
+		super(JSONResponse, self).__init__(content, **kwargs)
+
 # Create your views here.
 def register(request):
     # Like before, get the request's context.
@@ -111,3 +128,18 @@ def user_logout(request):
 
     # Take the user back to the homepage.
     return HttpResponseRedirect('/users/')
+
+
+def check_username(request):
+	context = RequestContext(request)
+	if request.method == 'POST':
+		username = request.POST['username']
+		user_exists=CheckUser(True)
+		try:
+			user = User.objects.get(username=username)
+		except User.DoesNotExist:
+			user_exists=CheckUser(False)
+		serializer = CheckUserSerializer(user_exists, many=False)
+		return JSONResponse(serializer.data)
+	else:
+		return render_to_response('check_user.html', {}, context)

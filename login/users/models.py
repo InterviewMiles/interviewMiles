@@ -13,3 +13,8 @@ class UserProfile(models.Model):
     # Override the __unicode__() method to return out something meaningful!
     def __unicode__(self):
         return "Hello "+self.user.first_name+" !!"
+
+class CheckUser(models.Model):
+	exists = models.BooleanField()
+	def __init__(self, val):
+		self.exists = val
