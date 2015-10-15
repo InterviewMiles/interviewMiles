@@ -43,7 +43,9 @@ def register(request):
 		full_name = cgi.escape(request.POST['full_name'].strip()) 
 		username = cgi.escape(request.POST['username'].strip())
 		email = cgi.escape(request.POST['email'].strip())
-		contact_no = cgi.escape(request.POST['contact_no'].strip())
+		contact_no = request.POST['contact_no'].strip()
+		if not isinstance(contact_no, (int)):
+			contact_no = 0
 		password = cgi.escape(request.POST['password'].strip())
 		password2 = cgi.escape(request.POST['password2'].strip())
 
@@ -136,7 +138,7 @@ def user_logout(request):
 	logout(request)
 
 	# Take the user back to the homepage.
-	return HttpResponseRedirect('/users/')
+	return HttpResponseRedirect('/')
 
 def check_username(request):
 	context = RequestContext(request)

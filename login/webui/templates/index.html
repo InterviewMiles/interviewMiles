@@ -49,15 +49,25 @@
               </center>
             </div>
           </div>
-
-          <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 anime" data-toggle="modal" data-target="#loginModal">
-            <a href="#" id="link">
-              <div class="text-center rapl_box">
-                <h1>  <span class="glyphicon glyphicon-log-in" class="anime"></span></h1>
-                <h4>Sign In / Sign up</h4>
-              </div>
-            </a>
-          </div>
+          {% if user.is_authenticated %}
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 anime" data-toggle="modal" data-target="#">
+              <a href="#" id="link">
+                <div class="text-center rapl_box">
+                  <h4>Welcome : {{ user.first_name }}</h4>
+                  <h4><a href="/users/logout">logout</a></h4>
+                </div>
+              </a>
+            </div>
+          {% else %}
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 anime" data-toggle="modal" data-target="#loginModal">
+              <a href="#" id="link">
+                <div class="text-center rapl_box">
+                  <h1>  <span class="glyphicon glyphicon-log-in" class="anime"></span></h1>
+                  <h4>Sign In / Sign up</h4>
+                </div>
+              </a>
+            </div>
+          {% endif %}
 
 
           <!--Modal For Login/Register Form-->
@@ -68,7 +78,7 @@
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><span class="glyphicon glyphicon-remove-circle"></span></button>
                   <h4 class="modal-title" id="myModalLabel" style="font-size:19px;"><center>Login</center></h4>
                   <!-- Django from -->
-				   <form id="login_form" method="post" action="/users/login/">
+				   <form name="login_form" id="login_form" method="post" action="/users/login/" onsubmit="return login()">
                   {% csrf_token %}
                   <div class="form-group">
                     <label for="username">Username</label>
@@ -123,8 +133,8 @@
                     <strong>thank you for registering!</strong>
                     <a href="/users/">Return to the homepage.</a><br />
                   {% else %}
-        				  <form id="user_form" method="post" action="/users/register/"
-                            enctype="multipart/form-data">
+        				  <form name="register_form" id="user_form" method="post" action="/users/register/"
+                            enctype="multipart/form-data" onsubmit="return register()" >
                     {% csrf_token %}
 				    <div class="form-group">
                     <label for="fullname">Full Name</label>
