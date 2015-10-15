@@ -1,0 +1,81 @@
+body {
+  padding-top: 15px;
+  background: url('../media/images/bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family:calibri;
+}
+.transparent_div
+{
+  background:transparent;
+  width:90%;
+  height:90px;
+  margin:3%;
+}
+@font-face {
+    font-family: "BrushScriptStd";
+	src: url('BrushScriptStd.eot');
+    src: url('BrushScriptStd.eot?#iefix')
+             format('embedded-opentype'),
+         url('BrushScriptStd.woff') format('woff'),
+         url('BrushScriptStd.ttf') format('truetype');
+}
+.bssFont {
+    font-family: "BrushScriptStd", Verdana, Tahoma;
+}
+
+.rapl_box{
+  padding:10px 0px 0px 0px;
+  background:#FF6633;
+  width:90%;
+  height:140px;
+  margin:3%;
+  color:#ffffff;
+  
+}
+.rapl_box_new{
+  padding:10px 0px 0px 0px;
+  background:#00CC99;
+  width:90%;
+  height:140px;
+  margin:3%;
+  color:#ffffff;
+
+}
+#link{
+  text-decoration:none;
+}
+.anime span
+{
+	-webkit-transition-timing-function: ease-in;
+	-webkit-transition: width 1s, height 1s, -webkit-transform 2s; /* Safari */
+    transition: width 1s, height 1s, transform 2s;
+	-webkit-transition-duration: 5s;
+	-moz-transition-duration: 15s;	/* Safari */
+    transition-duration: 5s;
+	transition: font 0.8s ease
+}
+.anime:hover span{
+	
+	font-size:40px;
+}
+#logicofb{
+					color:#ffffff;
+					}
+					#logicofb:hover{
+					color:#3a5795;
+					}
+					#logicoli{
+					color:#ffffff;
+					}
+					#logicoli:hover{
+					color:#007bb6;
+					}
+					#logicogp{
+					color:#ffffff;
+					}
+					#logicogp:hover{
+					color:#dd4b39;
+					}
