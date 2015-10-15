@@ -1,7 +1,6 @@
 from rest_framework import serializers
-from users.models import CheckUser
+from users.models import *
 
-
-class CheckUserSerializer(serializers.ModelSerializer):
+class UserResponceSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = CheckUser
+		model = UserResponce  

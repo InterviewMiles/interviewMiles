@@ -14,7 +14,7 @@ class UserProfile(models.Model):
     def __unicode__(self):
         return "Hello "+self.user.first_name+" !!"
 
-class CheckUser(models.Model):
-	exists = models.BooleanField()
-	def __init__(self, val):
-		self.exists = val
+class UserResponce(models.Model):
+    result = models.CharField(max_length=100)
+    def __init__(self,val):
+        self.result = val

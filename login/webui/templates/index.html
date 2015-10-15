@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="/static/style/css/bootstrap.min.css">
   <script src="/static/style/js/jquery.min.js"></script>
   <script src="/static/style/js/bootstrap.min.js"></script>
+  <script src="/static/style/js/index.js"></script>
   <script src="https://use.fonticons.com/1ddea501.js"></script>
 </head>
 <body>
@@ -125,25 +126,25 @@
         				  <form id="user_form" method="post" action="/users/register/"
                             enctype="multipart/form-data">
                     {% csrf_token %}
-				  <!--div class="form-group">
+				    <div class="form-group">
                     <label for="fullname">Full Name</label>
                     <div class="input-group">
                       <div class="input-group-addon" style="border:2px solid #FF6633;border-right:0px;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></div>
-                      <input type="text" class="form-control" style="border:2px solid #FF6633;border-left:0px;color:#FF6633;" name="fullname" id="fullname_check" autocomplete="off" placeholder="Full Name"  autofocus required>
+                      <input name="full_name" type="text" class="form-control" style="border:2px solid #FF6633;border-left:0px;color:#FF6633;" name="fullname" id="fullname_check" autocomplete="off" placeholder="Full Name"  autofocus required>
                     </div>
-                  </div-->
+                  </div>
                   <div class="form-group">
                     <label for="username">Username</label>
                     <div class="input-group">
                       <div class="input-group-addon" style="border:2px solid #FF6633;border-right:0px;">@</div>
-                      <input name="username" type="text" class="form-control" style="border:2px solid #FF6633;border-left:0px;color:#FF6633;" name="username" id="user_check" autocomplete="off" placeholder="Username">
+                      <input name="username" type="text" class="form-control" style="border:2px solid #FF6633;border-left:0px;color:#FF6633;" name="username" id="user_check" autocomplete="off" placeholder="Username" required>
                     </div>
                   </div>
 				  <div class="form-group">
                     <label for="email">Email</label>
                     <div class="input-group">
                       <div class="input-group-addon" style="border:2px solid #FF6633;border-right:0px;"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></div>
-                      <input name="email" type="email" class="form-control" style="border:2px solid #FF6633;border-left:0px;color:#FF6633;" name="email" id="email_check" autocomplete="off" placeholder="email">
+                      <input name="email" type="email" class="form-control" style="border:2px solid #FF6633;border-left:0px;color:#FF6633;" name="email" id="email_check" autocomplete="off" placeholder="email" required>
                     </div>
                   </div>
 				  <div class="form-group">
@@ -157,14 +158,14 @@
                     <label for="password1">New Password</label>
                     <div class="input-group">
                       <div class="input-group-addon" style="border:2px solid #FF6633;border-right:0px;"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
-                      <input name="password" type="password" class="form-control" style="border:2px solid #FF6633;border-left:0px;color:#FF6633;" name="passwor1" id="password_check1" autocomplete="off" placeholder="New Password"  required>
+                      <input name="password" type="password" class="form-control" style="border:2px solid #FF6633;border-left:0px;color:#FF6633;" name="passwor1" id="password_check1" autocomplete="off" placeholder="New Password" required>
                     </div>
                   </div>
 				  <div class="form-group">
                     <label for="password2">Repeat New Password</label>
                     <div class="input-group">
                       <div class="input-group-addon" style="border:2px solid #FF6633;border-right:0px;"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
-                      <input type="password" class="form-control" style="border:2px solid #FF6633;border-left:0px;color:#FF6633;" name="password2" id="password_check2" autocomplete="off" placeholder="Reenter Password"  required>
+                      <input name="password2" type="password" class="form-control" style="border:2px solid #FF6633;border-left:0px;color:#FF6633;" name="password2" id="password_check2" autocomplete="off" placeholder="Reenter Password"  required>
                     </div>
                   </div>
                   <center>
