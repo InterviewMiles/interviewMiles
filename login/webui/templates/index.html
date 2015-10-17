@@ -50,12 +50,19 @@
             </div>
           </div>
           {% if user.is_authenticated %}
-            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 anime" data-toggle="modal" data-target="#">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 anime">
               <a href="#" id="link">
                 <div class="text-center rapl_box">
-                  <h4>Welcome : {{ user.first_name }}</h4>
-                  <h4><a href="/users/logout">logout</a></h4>
-                </div>
+          <div class="row">
+            <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4" >
+                 <img src="static/media/images/default.png" style="margin-left:10px;" width="90%" height="90%" class="img-responsive img-circle" alt="User Picture">
+            </div>
+            <div class="col-md-8 col-md-8 col-sm-8 col-xs-8">
+                <p style="margin-top:8px;">Welcome, <b>{{ user.first_name }}</b></p>
+                <a href="/users/logout"><p class="glyphicon glyphicon-off" style="margin-top:20px;"></p>&nbsp;Log Out</a>
+            </div>
+          </div>
+          </div>
               </a>
             </div>
           {% else %}
